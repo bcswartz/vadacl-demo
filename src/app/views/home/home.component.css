@@ -1,0 +1,8 @@
+.row-spacer {
+  padding: 12px 0px;
+  border-bottom: 2px solid #ccc;
+}
+
+.correctTop {
+  margin-top:-5px;
+}

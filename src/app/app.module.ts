@@ -12,13 +12,23 @@ import { CustomerProfileComponent } from './views/customer-profile/customer-prof
 
 import { Vadacl as VadaclService } from 'vadacl';
 import { AddressComponent } from './views/address/address.component';
+import { AdminProfileComponent } from './views/admin-profile/admin-profile.component';
+import { CompanyComponent } from './views/company/company.component';
+import { CompanyNameComponent } from './views/company-name/company-name.component';
+import { ExcursionPackageComponent } from './views/excursion-package/excursion-package.component';
+import { PatientComponent } from './views/patient/patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerProfileComponent,
-    AddressComponent
+    AddressComponent,
+    AdminProfileComponent,
+    CompanyComponent,
+    CompanyNameComponent,
+    ExcursionPackageComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
