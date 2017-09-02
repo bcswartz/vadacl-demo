@@ -37,7 +37,7 @@ export class CustomerProfileComponent extends Vadacl implements OnInit {
     this.profileForm = new FormGroup({
       'firstName': new FormControl(
         this.userProfile.firstName,
-        this.applyRules( this.userProfile, 'firstName')
+        this.applyRules( this.userProfile, 'firstName' )
       ),
       'lastName': new FormControl(
         this.userProfile.lastName,

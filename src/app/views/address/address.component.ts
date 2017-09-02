@@ -42,6 +42,7 @@ export class AddressComponent implements OnInit {
         pattern: { pattern: '[A-Z]{2}', message: 'The state value should be 2 capitalized letters.' }
       },
       zipCode: {
+        required: { message: 'Please enter a zip code.' },
         pattern: { pattern: '[0-9]{5}', message: '5-digit zip codes only, please.' }
       }
     };

@@ -31,7 +31,7 @@ export class UserProfile implements Validateable {
       required: { message: 'Your last name is required.' }
     },
     username: {
-      maxLength: { maxLength: 30, message: 'Your username cannot be longer than 25 characters.'},
+      maxLength: { maxLength: 30, message: 'Your username cannot be longer than 30 characters.'},
       required: { message: 'You must have a username.' }
     },
     password: {
