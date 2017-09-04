@@ -1,4 +1,8 @@
-import { Validateable, PropertyValidations } from 'vadacl'
+/*
+ Since we are using a custom validation method with matching custom interface declarations, we will pull in
+ the interfaces from the customized implementation of vadacl.
+*/
+import { Validateable, PropertyValidations } from '../validation/vadacl'
 
 export class Company implements Validateable {
   name: string = null;
@@ -31,7 +35,7 @@ export class Company implements Validateable {
     },
     zip: {
       required: {},
-      pattern: { pattern: '[0-9]{5}' }
+      fullZipCode: {}
     }
   };
 

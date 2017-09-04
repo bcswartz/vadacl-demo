@@ -26,7 +26,7 @@ let ValidationMessages = {
     },
     zip: {
       required: 'Please enter the zip code the company is based in.',
-      pattern: 'Please enter the zip as a 5-digit code.'
+      fullZipCode: 'Please enter the full zip code (5 digits, a dash, then 4 digits).' // Message for custom validation method
     }
   },
 
