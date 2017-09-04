@@ -46,8 +46,12 @@
           <input id="state" type="text" class="form-control" formControlName="state">
           <div *ngIf="pageReady && vService.showErrors( addressForm.controls.state )" class="alert alert-danger">
             <ul>
-              <li *ngFor="let error of vService.getControlErrors( addressForm.controls.state )">
-                {{error}}
+              <!-- Demonstrates pulling the message directly from the returned error metadata -->
+              <li *ngIf="addressForm.controls.state.errors.required">
+                {{addressForm.controls.state.errors.required.message}}
+              </li>
+              <li *ngIf="addressForm.controls.state.errors.pattern">
+                {{addressForm.controls.state.errors.pattern.message}}
               </li>
             </ul>
           </div>
@@ -63,8 +67,12 @@
           <input id="zipCode" type="text" class="form-control" formControlName="zipCode">
           <div *ngIf="pageReady && vService.showErrors( addressForm.controls.zipCode )" class="alert alert-danger">
             <ul>
-              <li *ngFor="let error of vService.getControlErrors( addressForm.controls.zipCode )">
-                {{error}}
+              <!-- Demonstrates "hard-coding" validation messages based on the type of error message -->
+              <li *ngIf="addressForm.controls.zipCode.errors.required">
+                Address postal code is required.
+              </li>
+              <li *ngIf="addressForm.controls.zipCode.errors.pattern">
+                Address postal code does not fit the pattern.
               </li>
             </ul>
           </div>

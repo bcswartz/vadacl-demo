@@ -44,12 +44,8 @@
           <input id="state" type="text" class="form-control" formControlName="state">
           <div *ngIf="pageReady && showErrors( companyForm.controls.state )" class="alert alert-danger">
             <ul>
-              <!-- Demonstrates pulling the message directly from the returned error metadata -->
-              <li *ngIf="companyForm.controls.state.errors.required">
-                {{companyForm.controls.state.errors.required.message}}
-              </li>
-              <li *ngIf="companyForm.controls.state.errors.pattern">
-                {{companyForm.controls.state.errors.pattern.message}}
+              <li *ngFor="let error of getControlErrors( companyForm.controls.state )">
+                {{error}}
               </li>
             </ul>
           </div>
@@ -65,12 +61,8 @@
           <input id="zip" type="text" class="form-control" formControlName="zip">
           <div *ngIf="pageReady && showErrors( companyForm.controls.zip )" class="alert alert-danger">
             <ul>
-              <!-- Demonstrates "hard-coding" validation messages based on the type of error message -->
-              <li *ngIf="companyForm.controls.zip.errors.required">
-                Postal code is required.
-              </li>
-              <li *ngIf="companyForm.controls.zip.errors.pattern">
-                Postal code does not fit the pattern.
+              <li *ngFor="let error of getControlErrors( companyForm.controls.zip )">
+                {{error}}
               </li>
             </ul>
           </div>

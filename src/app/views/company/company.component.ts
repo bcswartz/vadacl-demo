@@ -5,11 +5,9 @@ import { Company } from '../../domain/company';
 import { EnterpriseCompany } from '../../domain/enterprise-company';
 
 /*
- Importing copy of Vadacl from locale-vadacl in order to use the class locale validation messages.  The locale copy of Vadacl provides a demonstration
- of the use of class locale messages without polluting the messages in the Vadacl folder meant for installation in projects with class error messages
- */
-//import { Vadacl } from '../../locale-vadacl/vadacl';
-import { Vadacl } from 'vadacl';
+ Using an override version of Vadacl in order to use custom validation methods and messages.
+*/
+import { Vadacl } from '../../validation/vadacl';
 
 @Component({
   selector: 'views-company',
@@ -28,8 +26,8 @@ export class CompanyComponent extends Vadacl implements OnInit {
   }
 
   ngOnInit() {
-    //this.company = new Company();
-    this.company = new EnterpriseCompany(); //switch with line above to get different set of messages for what is otherwise the same object
+    this.company = new Company();
+    //this.company = new EnterpriseCompany(); //switch with line above to get different set of messages for what is otherwise the same object
 
     this.companyForm = new FormGroup({
       'name': new FormControl(
