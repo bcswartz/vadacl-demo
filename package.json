@@ -2,13 +2,18 @@
   "name": "vadacl-demo",
   "version": "0.0.0",
   "license": "MIT",
+  "config": {
+    "locale": "fr"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "release": "cp ./src/app/validation/validation-messages.ts ./src/app/validation/validation-messages.ts.TMP; cp ./src/locale/$npm_package_config_locale/validation-messages.ts ./src/app/validation/validation-messages.ts; npm run build",
+    "postbuild": "cp ./src/app/validation/validation-messages.ts.TMP ./src/app/validation/validation-messages.ts; rm ./src/app/validation/validation-messages.ts.TMP"
   },
   "private": true,
   "dependencies": {
