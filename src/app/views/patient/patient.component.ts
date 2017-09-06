@@ -65,6 +65,9 @@ export class PatientComponent extends Vadacl implements OnInit {
       'firstName': [ this.patient.firstName, this.applyRules( this.patient, 'firstName' ) ],
       'lastName': [ this.patient.lastName, this.applyRules( this.patient, 'lastName' )  ],
       'username': [ this.patient.username, this.applyRules( this.patient, 'username', usernameValidations )  ],
+      'emailAddress': [ this.patient.emailAddress, this.applyRules( this.patient, 'emailAddress' ) ],
+      'age': [ this.patient.age, this.applyRules( this.patient, 'age' ) ],
+      'previousVisits': [ this.patient.numberOfVisits, this.applyRules( this.patient, 'numberOfVisits' ) ],
       'agreement': [ this.patient.agreement, this.applyRules( this.patient, 'agreement' ) ],
       'percentages': this.percentageFormGroup
     });
