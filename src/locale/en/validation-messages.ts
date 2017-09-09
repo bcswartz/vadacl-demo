@@ -12,6 +12,7 @@ let ValidationMessages = {
   totals: 'The total value does not meet the required total',
   equalvalues: 'The values are not equal',
   withintruecount: 'The number of true values does not meet the requirement',
+  fullzipcode: 'The zip code is invalid',
 
   /* DOMAIN CLASS VALIDATION MESSAGES */
   Company: {
@@ -29,7 +30,7 @@ let ValidationMessages = {
     },
     zip: {
       required: 'Please enter the zip code the company is based in.',
-      fullZipCode: 'Please enter the full zip code (5 digits, a dash, then 4 digits).' // Message for custom validation method
+      fullzipcode: 'Please enter the full zip code (5 digits, a dash, then 4 digits).' // Message for custom validation method
     }
   },
 

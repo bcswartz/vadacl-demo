@@ -15,7 +15,7 @@ class CustomValidationMethods extends ValidationMethods {
       the pattern validation message will look for a "pattern" message in the validation messages object
       or the domain class.
      */
-    let msg = message || ValidationMethods.getLocaleMessage( 'fullZipCode', className, propertyName );
+    let msg = message || ValidationMethods.getLocaleMessage( 'fullzipcode', className, propertyName );
     return ValidationMethods.pattern( '[0-9]{5}\-[0-9]{4}', msg )
   }
 }
