@@ -15,9 +15,9 @@ export class AddressComponent implements OnInit {
   address: any;
 
   /*
-   This component, instead of extending the Vadacl class, uses it as an injected service
+   This component, instead of extending the vadacl class, uses it as an injected service
    */
-  constructor( private vService: VadaclService) { }
+  constructor( public vService: VadaclService) { }
 
   ngOnInit() {
     this.createDomainObject();
@@ -34,7 +34,7 @@ export class AddressComponent implements OnInit {
       street: { required: { message: 'Please enter the street address.' } },
       /*
        Even though the address object has no pre-defined validations, the required validation rule will still
-       inherit the default validation message returned by the required validator.
+       inherit the default validation message returned by the "required" validation method.
        */
       city: { required: {} },
       state: {
@@ -56,7 +56,7 @@ export class AddressComponent implements OnInit {
   }
 
   /*
-   Illustrates the face that vadacl can be used with domain/data objects represented by simple object literals
+   Illustrates the fact that vadacl can be used with domain/data objects represented by simple object literals.
    */
   createDomainObject() {
     this.address = {

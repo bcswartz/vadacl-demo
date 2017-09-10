@@ -9,7 +9,7 @@ export class UserProfile implements Validateable {
   gender: string = null;
 
   /*
-   Declaring a data type for the validations property is strictly optional, and how it is declared can affect how
+   Declaring a data type for the "validations" property is strictly optional, and how it is declared can affect how
    problems with the validation settings will be surfaced by an IDE that executes a TypeScript compiler.
 
    With the data type set as below, a compiler error should be thrown if any of the property validation settings

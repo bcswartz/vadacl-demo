@@ -37,8 +37,7 @@ export class PatientComponent extends Vadacl implements OnInit {
     };
 
     /*
-     Settings for the totals validation method, which was introduced in release 0.2.0.  Prior to that, a custom
-     validation method for the percentageFormGroup was declared
+     Settings for the totals validation method.
      */
     let totalValidator: PropertyValidations = {
       totals: { total: 100, message: 'The percentages must total up to 100.' }

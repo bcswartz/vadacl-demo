@@ -23,7 +23,7 @@ export class Patient implements Validateable {
   } = {
     /*
      Since no "message" property is set, both the minLength and required validation methods will utilize the
-     default error message provided by the Messages import in the ValidationMethods class file (unless
+     default error message provided by the validation-messages file in the vadacl package (unless
      overridden at the component level).
      */
     firstName: {

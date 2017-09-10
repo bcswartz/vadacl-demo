@@ -77,7 +77,7 @@ export class AdminProfileComponent extends Vadacl implements OnInit {
   /*
    Prevents display of password mismatch validation error until both inputs have a value and
    the confirmPassword control has been touched.
-   */
+  */
   passwordGroupModified() : boolean {
     let pswdValuesSet = false;
     let pswdControls = this.profileForm.controls[ 'passwordGroup' ][ 'controls' ];

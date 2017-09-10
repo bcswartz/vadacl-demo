@@ -11,9 +11,8 @@ export class Company implements Validateable {
   zip: string = null;
 
   /*
-   The messages for the validations below are configured in locale-vadacl/messages-en.ts.  The copies of the Vadacl and
-   ValidationMethod classes in the locale-vadacl folder will be used to validate this object in order to demonstrate
-   locale-based messages (rather than polluting the regular vadacl local messages with messages for a demo class).
+   The messages for the validations below are configured in the custom copy of validation-messages.ts in the
+   validation folder.
    */
   validations: {
     name: PropertyValidations,

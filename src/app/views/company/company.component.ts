@@ -5,7 +5,7 @@ import { Company } from '../../domain/company';
 import { EnterpriseCompany } from '../../domain/enterprise-company';
 
 /*
- Using an override version of Vadacl in order to use custom validation methods and messages.
+ Using an override version of vadacl in order to use custom validation methods and messages.
 */
 import { Vadacl } from '../../validation/vadacl';
 
@@ -27,7 +27,7 @@ export class CompanyComponent extends Vadacl implements OnInit {
 
   ngOnInit() {
     this.company = new Company();
-    //this.company = new EnterpriseCompany(); //switch with line above to get different set of messages for what is otherwise the same object
+    //this.company = new EnterpriseCompany(); // Switch with line above to get different set of messages for what is otherwise the same object
 
     this.companyForm = new FormGroup({
       'name': new FormControl(

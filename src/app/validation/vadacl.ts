@@ -20,7 +20,7 @@ class CustomValidationMethods extends ValidationMethods {
   }
 }
 
-// Increment / extend Vadacl interfaces to support custom validation methods
+// Increment / extend vadacl interfaces to support custom validation methods
 interface FullZipCodeSettings {
   message ?: string
 }

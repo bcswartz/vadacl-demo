@@ -1,6 +1,9 @@
-.row-spacer {
-  padding: 12px 0px;
-  border-bottom: 2px solid #ccc;
+ul.bullets {
+  list-style-type: circle;
+}
+
+ul.bullets > li {
+  margin-left:24px;
 }
 
 .correctTop {
