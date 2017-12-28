@@ -1,6 +1,6 @@
 # vadacl Demo
 
-vadacl ("validation at domain and component levels") is an [npm-packaged TypeScript library](https://www.npmjs.com/package/vadacl) for Angular 4.x that enhances the 
+vadacl ("validation at domain and component levels") is an [npm-packaged TypeScript library](https://www.npmjs.com/package/vadacl) for Angular 4.x/5.x that enhances the 
 reactive form validation features provided in Angular.  It provides a means by which developers can set domain/database-based 
 validation rules on data objects but then augment or override those validations as needed within different components.
 It also provides a number of helper functions for managing validation error data, and provides the option to define validation

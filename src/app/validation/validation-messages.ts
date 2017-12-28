@@ -18,7 +18,7 @@ let ValidationMessages = {
   Company: {
     name: {
       required: 'Please enter a name for the company.',
-      pattern: 'The company name cannot contain letters or spaces.'
+      pattern: 'The company name cannot contain numbers or spaces.'
     },
     city: {
       required: 'Please enter the city the company is based in.',

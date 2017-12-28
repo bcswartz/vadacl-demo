@@ -42,7 +42,7 @@ export class UserProfile implements Validateable {
       pattern: { pattern: '[0-9]*', message: 'Enter your age as an integer.' }
     },
     gender: {
-      pattern: { pattern: 'M|F', message: 'Enter your gender as "M" or "F".' }
+      pattern: { pattern: '[MF]{1}', message: 'Enter your gender as "M" or "F".' }
     }
   };
 
