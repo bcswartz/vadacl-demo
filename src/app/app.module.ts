@@ -17,6 +17,7 @@ import { CompanyComponent } from './views/company/company.component';
 import { CompanyNameComponent } from './views/company-name/company-name.component';
 import { ExcursionPackageComponent } from './views/excursion-package/excursion-package.component';
 import { PatientComponent } from './views/patient/patient.component';
+import { CruiseShipComponent } from "./views/cruise-ship/cruise-ship.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PatientComponent } from './views/patient/patient.component';
     CompanyComponent,
     CompanyNameComponent,
     ExcursionPackageComponent,
-    PatientComponent
+    PatientComponent,
+    CruiseShipComponent
   ],
   imports: [
     BrowserModule,

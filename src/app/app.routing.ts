@@ -7,6 +7,7 @@ import { CompanyNameComponent } from './views/company-name/company-name.componen
 import { AdminProfileComponent } from './views/admin-profile/admin-profile.component';
 import { CompanyComponent } from './views/company/company.component';
 import { ExcursionPackageComponent } from './views/excursion-package/excursion-package.component';
+import { CruiseShipComponent } from "./views/cruise-ship/cruise-ship.component";
 
 
 const appRoutes: Routes = [
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   { path: 'address', component: AddressComponent },
   { path: 'company', component: CompanyComponent },
   { path: 'company-name', component: CompanyNameComponent },
-  { path: 'excursion-package', component: ExcursionPackageComponent }
+  { path: 'excursion-package', component: ExcursionPackageComponent },
+  { path: 'cruise-ship', component: CruiseShipComponent }
 ];
 
 export const routing = RouterModule.forRoot( appRoutes );

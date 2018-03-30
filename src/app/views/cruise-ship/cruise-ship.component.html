@@ -1,0 +1,135 @@
+<h3>Cruise Ship Form</h3>
+
+<div class="row">
+  <div class="col-md-8">
+    <form class="form-horizontal well well-sm" [formGroup]="shipForm">
+
+      <div class="form-group">
+        <label for="name" class="col-md-3 control-label">Ship Name:</label>
+        <div class="col-md-4">
+          <input id="name" type="text" class="form-control" formControlName="name">
+          <div *ngIf="pageReady && showErrors(shipForm.controls.name)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.name )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is required. Must be at least 3 characters.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cruiseLine" class="col-md-3 control-label">Cruise Line:</label>
+        <div class="col-md-4">
+          <input id="cruiseLine" type="text" class="form-control" formControlName="cruiseLine">
+          <div *ngIf="pageReady && showErrors(shipForm.controls.cruiseLine)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.cruiseLine )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="yearBuilt" class="col-md-3 control-label">Year Built:</label>
+        <div class="col-md-4">
+          <input id="yearBuilt" type="text" class="form-control" formControlName="yearBuilt">
+          <div *ngIf="pageReady && showErrors(shipForm.controls.yearBuilt)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.yearBuilt )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is required.  Must be in YYYY format.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="deckCount" class="col-md-3 control-label">Number of Decks:</label>
+        <div class="col-md-4">
+          <input id="deckCount" type="text" class="form-control" formControlName="deckCount">
+          <div *ngIf="pageReady && showErrors(shipForm.controls.deckCount)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.deckCount )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is optional.  Must be a 1 or 2-digit integer.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tonnage" class="col-md-3 control-label">Tonnage:</label>
+        <div class="col-md-4">
+          <input id="tonnage" type="text" class="form-control" formControlName="tonnage">
+          <div *ngIf="pageReady && showErrors(shipForm.controls.tonnage)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.tonnage )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is optional.  Must be at least 100 tons.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="isActive" class="col-md-3 control-label">In Active Service:</label>
+        <div class="col-md-4">
+          <input id="isActive" type="checkbox" formControlName="isActive">
+        </div>
+        <div class="col-md-5">
+          Denotes if the ship is in active service.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="comments" class="col-md-3 control-label">Comments:</label>
+        <div class="col-md-4">
+          <textarea id="comments" class="form-control" formControlName="comments"></textarea>
+          <div *ngIf="pageReady && showErrors(shipForm.controls.comments)" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of getControlErrors( shipForm.controls.comments )">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5">
+          Field is optional.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <button type="button" class="btn btn-primary" [disabled]="!shipForm.valid" (click)="submitForm()">Submit</button>
+          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+  </div>
+</div>

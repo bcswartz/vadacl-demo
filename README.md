@@ -346,6 +346,28 @@ component template, eliminating the need to conditionally display different DOM 
 
 [Click to view admin profile form screenshot](docs/adminProfileErrors.png)
 
+Starting with version 1.1.0, vadacl also provides a generateForm() convenience method for generating a domain class-based
+form with a single statement, eliminating the need to declare the FormControl instances by hand.  Refactoring the earlier example:
+
+```javascript
+export class CustomerProfileComponent extends Vadacl implements OnInit {
+
+    profileForm: FormGroup;
+    userProfile: UserProfile;
+
+    constructor() {
+        super();
+    }
+
+    ngOnInit() {
+      this.userProfile = new UserProfile();
+      this.profileForm = this.generateForm( this.userProfile );
+    }
+```
+
+Component-specific validations can be applied with the generateForm() method by passing in a modification object (which can also be 
+used to exclude and rename FormControl instances) as the second method argument.  See the demo example code for details.
+
 #### vadacl Validation Methods
 
 The ValidationMethods class of vadacl includes validation methods that either mimic or wrap the Validator methods 
