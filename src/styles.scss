@@ -1,0 +1,27 @@
+@import "assets/sass/variables.scss";
+@import "../node_modules/bulma/bulma.sass";
+
+
+.hz-label-150 div.field-label {
+  min-width: 150px;
+}
+
+.hz-label-200 div.field-label {
+  min-width: 200px;
+}
+
+.hz-label-250 div.field-label {
+  min-width: 250px;
+}
+
+.hz-label-300 div.field-label {
+  min-width: 300px;
+}
+
+.hz-label-150 div.field.is-horizontal,
+.hz-label-200 div.field.is-horizontal,
+.hz-label-250 div.field.is-horizontal,
+.hz-label-300 div.field.is-horizontal
+{
+  margin-bottom: 0.75rem;
+}

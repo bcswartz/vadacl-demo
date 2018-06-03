@@ -1,145 +1,204 @@
-<h3>Admin Profile Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="profileForm">
+  <br />
+  <h3 class="title is-size-3">Admin Profile Form</h3>
 
-      <div class="form-group">
-        <label for="firstName" class="col-md-3 control-label">firstName:</label>
-        <div class="col-md-4">
-          <input id="firstName" type="text" class="form-control" formControlName="firstName">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.firstName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.firstName )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-5">
-          Field is required. Must be less than 26 characters.
-        </div>
-      </div>
+  <div class="box has-background-light">
 
-      <div class="form-group">
-        <label for="lastName" class="col-md-3 control-label">lastName:</label>
-        <div class="col-md-4">
-          <input id="lastName" type="text" class="form-control" formControlName="lastName">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.lastName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.lastName )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-5">
-          Field is required.  Must be less than 26 characters.
-        </div>
-      </div>
+    <div class="columns">
+      <div class="column is-8">
+        <form [formGroup]="profileForm" class="hz-label-200">
 
-      <div class="form-group">
-        <label for="username" class="col-md-3 control-label">Username:</label>
-        <div class="col-md-4">
-          <input id="username" type="text" class="form-control" formControlName="username">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.username)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.username )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-5">
-          Field is required.  Must be between 3 and 30 characters long.
-        </div>
-      </div>
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label for="firstName" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.firstName )">firstName:</label>
+            </div>
+            <div class="field-body">
+              <div class="field ">
+                <div class="control">
+                  <input id="firstName" type="text" class="input" formControlName="firstName" placeholder="Required. Must be less than 26 characters">
 
-      <div formGroupName="passwordGroup">
-        <div class="form-group">
-          <label for="password" class="col-md-3 control-label">Password:</label>
-          <div class="col-md-4">
-            <input id="password" type="text" class="form-control" formControlName="password">
-            <div *ngIf="pageReady && showErrors( profileForm.controls.passwordGroup.controls.password )" class="alert alert-danger">
-              <ul>
-                <li *ngFor="let error of getControlErrors( profileForm.controls.passwordGroup.controls.password )">
-                  {{error}}
-                </li>
-              </ul>
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.firstName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.firstName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-5">
-            Field is required.  Must be at least 6 characters long.
-          </div>
-        </div>
 
-        <div class="form-group">
-          <label for="password" class="col-md-3 control-label">Confirm Password:</label>
-          <div class="col-md-4">
-            <input id="confirmPassword" type="text" class="form-control" formControlName="confirmPassword">
-            <!-- Ensures error is only displayed under appropriate conditions -->
-            <div *ngIf="pageReady && passwordGroupModified() && profileForm.controls.passwordGroup.hasError( 'equalvalues' )" class="alert alert-danger">
-              <ul>
-                <li *ngFor="let error of getControlErrors( profileForm.controls.passwordGroup )">
-                  {{error}}
-                </li>
-              </ul>
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label for="lastName" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.lastName )">lastName:</label>
+            </div>
+            <div class="field-body">
+              <div class="field ">
+                <div class="control">
+                  <input id="lastName" type="text" class="input" formControlName="lastName" placeholder="Required. Must be less than 26 characters">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.lastName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.lastName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-5">
-            Should equal password.
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label for="username" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.username )">Username:</label>
+            </div>
+            <div class="field-body">
+              <div class="field ">
+                <div class="control">
+                  <input id="username" type="text" class="input" formControlName="username" placeholder="Required. Must be between 3 and 30 characters long">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.username) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.username )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div formGroupName="passwordGroup">
+
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="password" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.passwordGroup.controls.password )">Password:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input id="password" type="text" class="input" formControlName="password" placeholder="Required. Must be at least 6 characters long">
+
+                    <div *ngIf="pageReady && showErrors( profileForm.controls.passwordGroup.controls.password) " class="help is-danger">
+                      <ul>
+                        <li *ngFor="let error of getControlErrors( profileForm.controls.passwordGroup.controls.password )">
+                          {{error}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="confirmPassword" class="label" [class.has-text-danger]="pageReady && passwordGroupModified() && profileForm.controls.passwordGroup.hasError( 'equalvalues' )">Confirm Password:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input id="confirmPassword" type="text" class="input" formControlName="confirmPassword" placeholder="Should equal password">
+
+                    <div *ngIf="pageReady && passwordGroupModified() && profileForm.controls.passwordGroup.hasError( 'equalvalues' )" class="help is-danger">
+                      <ul>
+                        <li *ngFor="let error of getControlErrors( profileForm.controls.passwordGroup )">
+                          {{error}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label for="age" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.age )">Age:</label>
+            </div>
+            <div class="field-body">
+              <div class="field ">
+                <div class="control">
+                  <input id="age" type="text" class="input" formControlName="age" placeholder="Optional. Must be an integer if entered">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.age) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.age )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label for="gender" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.gender )">Gender:</label>
+            </div>
+            <div class="field-body">
+              <div class="field ">
+                <div class="control">
+                  <input id="gender" type="text" class="input" formControlName="gender" placeholder='Optional. Must be "M" or "F" if entered'>
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.gender) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.gender )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label"></div>
+            <div class="field-body">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!profileForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="form-group">
-        <label for="age" class="col-md-3 control-label">Age:</label>
-        <div class="col-md-4">
-          <input id="age" type="text" class="form-control" formControlName="age">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.age)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.age )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-5">
-          Field is optional.  Must be an integer.
-        </div>
+      <div class="column is-3 content is-size-7">
+        <p>In this demo, the validations and validation messages applied to the form for the user profile properties
+          come from a variety of sources:</p>
+        <ul>
+          <li>"firstName": The rules are both set on the userProfile domain class.  The component specifies the required
+          validation message, while the maxlength validation message is the default defined in the validation-messages.ts file</li>
+          <li>"lastname": The domain class configures both the rules and specific messages for both validations, but the
+          component overrides the required validation message.</li>
+          <li>"username": The component adds a minLength validation rule and message to the rules and messages defined in
+          the domain class.</li>
+          <li>The rest of the profile property validation rules and messages are defined in the domain class.</li>
+        </ul>
+        <p>The "password" and "confirmPassword" form fields are declared as part of a FormGroup (a sub-FormGroup) used
+          within the form's FormGroup.  The component uses vadacl's applyCollectionRule() method to apply an equalValues()
+          validation to the FormGroup to ensure that both form fields contain an equal value (the required validation
+        applied to the "password" property of the domain class ensures that both form inputs cannot be empty).</p>
       </div>
 
-      <div class="form-group">
-        <label for="gender" class="col-md-3 control-label">Gender:</label>
-        <div class="col-md-4">
-          <input id="gender" type="text" class="form-control" formControlName="gender">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.gender)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.gender )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-5">
-          Field is optional.  Must be value of either "M" or "F".
-        </div>
-      </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <button type="button" class="btn btn-primary" [disabled]="!profileForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

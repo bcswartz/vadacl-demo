@@ -1,135 +1,198 @@
-<h3>Cruise Ship Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="shipForm">
+  <br />
+  <h3 class="title is-size-3">Cruise Ship Form</h3>
 
-      <div class="form-group">
-        <label for="name" class="col-md-3 control-label">Ship Name:</label>
-        <div class="col-md-4">
-          <input id="name" type="text" class="form-control" formControlName="name">
-          <div *ngIf="pageReady && showErrors(shipForm.controls.name)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.name )">
-                {{error}}
-              </li>
-            </ul>
+  <div class="box has-background-light">
+
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="shipForm" class="hz-label-200">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="name" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.name)">Ship Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="name" type="text" class="input" formControlName="name" placeholder="Field is required. Must be at least 3 characters.">
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.name) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.name )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is required. Must be at least 3 characters.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="cruiseLine" class="col-md-3 control-label">Cruise Line:</label>
-        <div class="col-md-4">
-          <input id="cruiseLine" type="text" class="form-control" formControlName="cruiseLine">
-          <div *ngIf="pageReady && showErrors(shipForm.controls.cruiseLine)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.cruiseLine )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="cruiseLine" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.cruiseLine)">Cruise Line:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="cruiseLine" type="text" class="input" formControlName="cruiseLine" placeholder="Field is required.">
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.cruiseLine) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.cruiseLine )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is required.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="yearBuilt" class="col-md-3 control-label">Year Built:</label>
-        <div class="col-md-4">
-          <input id="yearBuilt" type="text" class="form-control" formControlName="yearBuilt">
-          <div *ngIf="pageReady && showErrors(shipForm.controls.yearBuilt)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.yearBuilt )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="yearBuilt" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.yearBuilt)">Year Built:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="yearBuilt" type="text" class="input" formControlName="yearBuilt" placeholder="Field is required.  Must be in YYYY format.">
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.yearBuilt) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.yearBuilt )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is required.  Must be in YYYY format.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="deckCount" class="col-md-3 control-label">Number of Decks:</label>
-        <div class="col-md-4">
-          <input id="deckCount" type="text" class="form-control" formControlName="deckCount">
-          <div *ngIf="pageReady && showErrors(shipForm.controls.deckCount)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.deckCount )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="deckCount" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.deckCount)">Number of Decks:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="deckCount" type="text" class="input" formControlName="deckCount" placeholder="Field is optional.  Must be a 1 or 2-digit integer.">
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.deckCount) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.deckCount )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is optional.  Must be a 1 or 2-digit integer.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="tonnage" class="col-md-3 control-label">Tonnage:</label>
-        <div class="col-md-4">
-          <input id="tonnage" type="text" class="form-control" formControlName="tonnage">
-          <div *ngIf="pageReady && showErrors(shipForm.controls.tonnage)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.tonnage )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="tonnage" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.tonnage)">Tonnage:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="tonnage" type="text" class="input" formControlName="tonnage" placeholder="Field is optional.  Must be at least 100 tons.">
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.tonnage) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.tonnage )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is optional.  Must be at least 100 tons.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="isActive" class="col-md-3 control-label">In Active Service:</label>
-        <div class="col-md-4">
-          <input id="isActive" type="checkbox" formControlName="isActive">
-        </div>
-        <div class="col-md-5">
-          Denotes if the ship is in active service.
-        </div>
-      </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="isActive" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.isActive)">In Active Service:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="isActive" type="checkbox" formControlName="isActive">
 
-      <div class="form-group">
-        <label for="comments" class="col-md-3 control-label">Comments:</label>
-        <div class="col-md-4">
-          <textarea id="comments" class="form-control" formControlName="comments"></textarea>
-          <div *ngIf="pageReady && showErrors(shipForm.controls.comments)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( shipForm.controls.comments )">
-                {{error}}
-              </li>
-            </ul>
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.isActive) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.isActive )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          Field is optional.
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="comments" class="label" [class.has-text-danger]="pageReady && showErrors( shipForm.controls.comments)">Comments:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea id="comments" class="textarea" formControlName="comments" placeholder="Field is optional."></textarea>
+
+                  <div *ngIf="pageReady && showErrors( shipForm.controls.comments) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( shipForm.controls.comments )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!shipForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <button type="button" class="btn btn-primary" [disabled]="!shipForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
+      <div class="column is-4 content is-size-7">
+        <p>This demo utilizes the vadacl method generateForm() which was added in version 1.1.0. If you define your
+        validation rules within your domain classes, generateForm() will allow you to create the FormGroup for the
+        form with a single statement, generating the controls based on the domain class.  If you compare the form
+        construction code in this component with other components in this project, you can see how that saves on
+        typing.</p>
+        <p>generateForm() can also take a second argument that lets you alter how the form will be generated (including/excluding
+        domain class properties, customizing the form control names, and overriding the validation rules and messages).
+        See the comments in the component code for an example.</p>
+        <p>The src/app/domain/cruise-ship.ts file that defines the CruiseShip domain class is also unique in that it
+        extends the base DomainClass defined in src/app/domain/domain-class.ts.  That base class provides the
+        constructor method used to initialize the domain class properties with initial values provided via an object
+        literal.</p>
       </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

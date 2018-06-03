@@ -1,47 +1,87 @@
-<h3>Company Name Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="companyForm">
+  <br />
+  <h3 class="title is-size-3">Company Name Form</h3>
 
-      <div class="form-group">
-        <label for="companyName" class="col-md-2 control-label">Company Name:</label>
-        <div class="col-md-5">
-          <input id="companyName" type="text" class="form-control" formControlName="companyName">
-          <div *ngIf="pageReady && showErrors( companyForm.controls.companyName )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( companyForm.controls.companyName )">
-                {{error}}
-              </li>
-            </ul>
+  <div class="box has-background-light">
+
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="companyForm">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="companyName" class="label" [class.has-text-danger]="pageReady && showErrors( companyForm.controls.companyName)">Street:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="companyName" type="text" class="input" formControlName="companyName" placeholder="Required.  Must be at least 5 characters long without numbers or spaces.">
+
+                  <div *ngIf="pageReady && showErrors( companyForm.controls.companyName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( companyForm.controls.companyName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Value is required.  Must be at least 5 characters long and cannot contain numbers or spaces.
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-danger" (click)="setCompanyName( 'ABC' )">Change to 'ABC'</button>
+                </div>
+                <div class="control">
+                  <button class="button is-danger" (click)="setCompanyName( '9To6' )">Change to '9To6'</button>
+                </div>
+                <div class="control">
+                  <button class="button is-success" (click)="setCompanyName( 'ValidName' )">Change to 'ValidName'</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!companyForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <button type="button" class="btn btn-danger" (click)="setCompanyName( 'ABC' )">Change to 'ABC'</button>
-          <button type="button" class="btn btn-danger" (click)="setCompanyName( '9To6' )">Change to '9To6'</button>
-          <button type="button" class="btn btn-success" (click)="setCompanyName( 'ValidName' )">Change to 'ValidName'</button>
-        </div>
+
+      <div class="column is-4 content is-size-7">
+        <p>The form in this demo is mapped to a simple JavaScript object literal with the property "companyName",
+        and the validation rules and messages are defined in a TypeScript-typed object applied to the FormControl
+        using vadacl's applyRules() method.</p>
+        <p>The main point of the demo is to showcase the use of vadacl's changeControlValue() method to mark
+        the FormControl as being touched and dirty as part of a programmatic change of the FormControl value.  This
+        ensures that the validation is invoked and that showErrors() for the form control evaluates to true and
+        the error(s) are displayed</p>
+        <p>This demo also has an example of what displaying multiple validation error messages looks like:  clicking
+        the "Change to '9To6'" button will cause two different validation messages to display.</p>
       </div>
-      <div class="row">&nbsp;</div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!companyForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

@@ -14,6 +14,7 @@ export class ExcursionPackageComponent extends Vadacl implements OnInit {
   formSubmitted: boolean = false;
   packageForm: FormGroup;
   selectedPackage: any;
+  selectedExcursions: number[] = [];
   packageArray: any;
   excursionArray: any;
 
@@ -66,12 +67,12 @@ export class ExcursionPackageComponent extends Vadacl implements OnInit {
     this.selectedPackage = this.packageArray[ 0 ];
 
     this.excursionArray = [
-      { id: 1, title: 'Dolphin cruise', label: 'a 3-hour cruise around Safin Island, with a chance to see dolphins and sea turtles.' },
-      { id: 2, title: 'Guided jungle hike', label: 'a 3-hour tour of the west coast of Safin Island.' },
-      { id: 3, title: 'Wanderlust Casino', label: 'have fun gambling in Wanderlust Casino.  $100 in gambling chips included.' },
-      { id: 4, title: 'Parasailing', label: 'soar over the waters of Regalia Bay solo or with a companion.  Limited availability.' },
-      { id: 5, title: 'Jetski session', label: 'spend 3 hours touring Regalia Bay on a jetski. Jetski training available.' },
-      { id: 6, title: 'Genoa Wharf', label: 'spend 3 hours sightseeing and shopping in the historical wharf area of the island of Genoa.' }
+      { id: 1, title: 'Dolphin cruise', label: 'A 3-hour cruise around Safin Island, with a chance to see dolphins and sea turtles.' },
+      { id: 2, title: 'Guided jungle hike', label: 'A 3-hour tour of the west coast of Safin Island.' },
+      { id: 3, title: 'Wanderlust Casino', label: 'Have fun gambling in Wanderlust Casino.  $100 in gambling chips included.' },
+      { id: 4, title: 'Parasailing', label: 'Soar over the waters of Regalia Bay solo or with a companion.  Limited availability.' },
+      { id: 5, title: 'Jetski session', label: 'Spend 3 hours touring Regalia Bay on a jetski. Jetski training available.' },
+      { id: 6, title: 'Genoa Wharf', label: 'Spend 3 hours sightseeing and shopping in the historical wharf area of the island of Genoa.' }
     ];
   }
 
@@ -86,6 +87,13 @@ export class ExcursionPackageComponent extends Vadacl implements OnInit {
   }
 
   submitForm() {
+    // If this was a real form, on submit you could collect the selected excursions and post them and the selected
+    // package to whatever takes care of recording the data.
+    for( let e = 0; e < this.packageForm.controls[ 'excursions' ].value.length; e++ ) {
+      if( this.packageForm.controls[ 'excursions' ].value[ e ] )  {
+        this.selectedExcursions.push( this.excursionArray[ e ].id );
+      }
+    }
     this.formSubmitted = true;
   }
 }

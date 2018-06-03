@@ -1,115 +1,196 @@
-<div class="container-fluid">
+<div id="column-container" class="container is-fluid">
 
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/customer-profile']">Customer Profile</a>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Customer Profile Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/customer-profile']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>The customer user profile use case described in the repo README file</li>
+          <li>Setting validations on a domain class</li>
+          <li>How to extend the vadacl class with the component class</li>
+          <li>How to add and override validations</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-9 correctTop">
-      Demonstrates:
-      <ul class="bullets">
-        <li>The customer user profile use case described in the repo README file</li>
-        <li>Setting validations on a domain class</li>
-        <li>How to extend the vadacl class with the component class</li>
-        <li>How to add and override validations</li>
-      </ul>
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Admin Profile Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/admin-profile']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>The admin user profile use case described in the repo README file</li>
+          <li>Validating password and password confirmation fields with vadacl's equalValues validation method</li>
+          <li>The reuse of the domain-level validations in a different component</li>
+          <li>The use of a sub-FormGroup</li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Patient Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/patient']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>The use of default validation method messages</li>
+          <li>Validating a sub-FormGroup within the main form FormGroup</li>
+          <li>The withinLength validation method provided by vadacl</li>
+          <li>The use of the min, max, and email validators added in Angular 4</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/admin-profile']">Admin Profile</a>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Address Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/address']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>Setting validations on an object literal</li>
+          <li>Using the vadacl class as a service within the component</li>
+          <li>Alternate ways of coding the error message display</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>The admin user profile use case described in the repo README file</li>
-        <li>Validating password and password confirmation fields with vadacl's equalValues validation method</li>
-        <li>The reuse of the domain-level validations in a different component</li>
-        <li>The use of a sub-FormGroup</li>
-      </ul>
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Excursion Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/excursion-package']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>The use of vadacl's withinTrueCount validation method to ensure a valid number of checkboxes are checked</li>
+          <li>An example of updating validation parameters on-the-fly</li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Company Name Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/company-name']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>The display of validation errors for a control that is programmatically updated</li>
+        </ul>
+      </div>
     </div>
   </div>
+  <div class="columns">
+    <div class="column is-one-third">
+      <div class="box">
+        <div class="has-background-info box">
 
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/patient']">Patient Form</a>
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Company Demo</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/company']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+        <ul class="bullets is-size-7">
+          <li>Using a customized/extended set of validation methods and global validation messages</li>
+          <li>Declaring domain class validation messages in the global validation messages file</li>
+          <li>Extending a domain class in order to provide a separate set of validation messages (switch the domain class in the component code)</li>
+          <li>How the global validation messages can be swapped out to provide different messages for different builds (see the repo README file for instructions)</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>The use of default validation method messages</li>
-        <li>Validating a sub-FormGroup within the main form FormGroup</li>
-        <li>The withinLength validation method provided by vadacl</li>
-        <li>The use of the min, max, and email validators added in Angular 4</li>
-      </ul>
+    <div class="column is-one-third">
+      <div class="box">
+        <div class="has-background-info box">
+
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <h5 class="title is-size-5 has-text-white">Cruise Ship</h5>
+            </div>
+            <div class="column has-text-right">
+              <a class="button is-primary has-text-weight-bold" [routerLink]="['/cruise-ship']">Try</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="tag is-warning">Demonstrates</p>
+
+        <ul class="bullets is-size-7">
+          <li>Using the generateForm() method to create the reactive form with a single statement based on the domain class properties and validations</li>
+          <li>Using a base domain class to hold properties and functions common to more than one domain class.</li>
+        </ul>
+      </div>
     </div>
   </div>
-
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/address']">Address Form</a>
-    </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>Setting validations on an object literal</li>
-        <li>Using the vadacl class as a service within the component</li>
-        <li>Alternate ways of coding the error message display</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/excursion-package']">Excursion Form</a>
-    </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>The use of vadacl's withinTrueCount validation method to ensure a valid number of checkboxes are checked</li>
-        <li>An example of updating validation parameters on-the-fly</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/company-name']">Company Name Form</a>
-    </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>The display of validation errors for a control that is programmatically updated</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/company']">Company Form</a>
-    </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>Using a customized/extended set of validation methods and global validation messages</li>
-        <li>Declaring domain class validation messages in the global validation messages file</li>
-        <li>Extending a domain class in order to provide a separate set of validation messages (switch the domain class in the component code)</li>
-        <li>How the global validation messages can be swapped out to provide different messages for different builds (see the repo README file for instructions)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row well">
-    <div class="col-md-2 text-left">
-      <a class="btn btn-primary btn-block" [routerLink]="['/cruise-ship']">Cruise Ship Form</a>
-    </div>
-    <div class="col-md-9">
-      Demonstrates:
-      <ul class="bullets">
-        <li>Using the generateForm() method to create the reactive form with a single statement based on the domain class properties and validations</li>
-        <li>Using a base domain class to hold properties and functions common to more than one domain class.</li>
-      </ul>
-    </div>
-  </div>
-
+  <br /><br />
 </div>

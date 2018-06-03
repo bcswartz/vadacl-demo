@@ -41,6 +41,7 @@ export class Patient implements Validateable {
       email: { message: "Please provide a valid email address." }
     },
     age: {
+      pattern: { pattern: "[0-9]{1,3}", message: "The age must be an integer." },
       min: { min: 18, message: "All patients must be at least 18 years of age."}
     },
     numberOfVisits: {

@@ -1,108 +1,156 @@
-<h3>Customer Profile Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="profileForm">
+  <br />
+  <h3 class="title is-size-3">Customer Profile Form</h3>
 
-      <div class="form-group">
-        <label for="firstName" class="col-md-2 control-label">First Name:</label>
-        <div class="col-md-6">
-          <input id="firstName" type="text" class="form-control" formControlName="firstName">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.firstName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.firstName )">
-                {{error}}
-              </li>
-            </ul>
+  <div class="box has-background-light">
+
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="profileForm">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="firstName" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.firstName)">First Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="firstName" type="text" class="input" formControlName="firstName" placeholder="Field is required. Must be less than 26 characters.">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.firstName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.firstName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required. Must be less than 26 characters.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="lastName" class="col-md-2 control-label">Last Name:</label>
-        <div class="col-md-6">
-          <input id="lastName" type="text" class="form-control" formControlName="lastName">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.lastName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.lastName )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="lastName" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.lastName)">Last Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="lastName" type="text" class="input" formControlName="lastName" placeholder="Field is required.  Must be less than 26 characters.">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.lastName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.lastName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be less than 26 characters.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="username" class="col-md-2 control-label">Username:</label>
-        <div class="col-md-6">
-          <input id="username" type="text" class="form-control" formControlName="username">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.username)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.username )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="username" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.username)">Username:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="username" type="text" class="input" formControlName="username" placeholder="Field is required.  Must be between 8 and 30 characters long.">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.username) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.username )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be between 8 and 30 characters long.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="age" class="col-md-2 control-label">Age:</label>
-        <div class="col-md-6">
-          <input id="age" type="text" class="form-control" formControlName="age">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.age)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.age )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="age" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.age)">Age:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="age" type="text" class="input" formControlName="age" placeholder="Field is required.  Must be an integer.">
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.age) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.age )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be an integer.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="gender" class="col-md-2 control-label">Gender:</label>
-        <div class="col-md-6">
-          <input id="gender" type="text" class="form-control" formControlName="gender">
-          <div *ngIf="pageReady && showErrors(profileForm.controls.gender)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( profileForm.controls.gender )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="gender" class="label" [class.has-text-danger]="pageReady && showErrors( profileForm.controls.gender)">Gender:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="gender" type="text" class="input" formControlName="gender" placeholder='Field is required.  Must be value of either "M" or "F".'>
+
+                  <div *ngIf="pageReady && showErrors( profileForm.controls.gender) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( profileForm.controls.gender )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be value of either "M" or "F".
-        </div>
+
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!profileForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!profileForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
+      <div class="column is-4 content is-size-7">
+        <p>In this demo, the validations and validation messages applied to the form for the user profile properties
+          come from a variety of sources:</p>
+        <ul>
+          <li>"firstName": The rules are set on the userProfile domain class, but the validation messages are the
+            global defaults defined for the required and maxLength validations in the validation-messages.ts file</li>
+          <li>"lastname": The domain class configures the rules and specific messages for both validations.</li>
+          <li>"username": The component adds a minLength validation rule and message to the rules and messages defined in
+            the domain class.</li>
+          <li>"age" and "gender": The domain class defines the pattern rules and messages for both properties, while the
+          component does the same for the required validation rule.</li>
+        </ul>
       </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

@@ -1,11 +1,14 @@
+#column-container {
+  margin-top:2ex;
+}
+
 ul.bullets {
-  list-style-type: circle;
+  list-style-type: disc;
+  margin-top:1.8ex;
 }
 
 ul.bullets > li {
-  margin-left:24px;
+  margin-left:3em !important;
+  margin-bottom:.5ex;
 }
 
-.correctTop {
-  margin-top:-5px;
-}

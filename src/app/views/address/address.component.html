@@ -1,100 +1,138 @@
-<h3>Address Form</h3>
 
-<div class="row">
-  <div class="col-md-6">
-    <form class="form-horizontal well well-sm" [formGroup]="addressForm">
+<div class="container">
 
-      <div class="form-group">
-        <label for="street" class="col-md-2 control-label">Street:</label>
-        <div class="col-md-6">
-          <input id="street" type="text" class="form-control" formControlName="street">
-          <!-- Because the AddressComponent leverages vadacl as an injected service, the vadacl methods must
-          be called via the service reference in the component. -->
-          <div *ngIf="pageReady && vService.showErrors( addressForm.controls.street) " class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of vService.getControlErrors( addressForm.controls.street )">
-                {{error}}
-              </li>
-            </ul>
+  <br />
+  <h3 class="title is-size-3">Address Form</h3>
+
+  <div class="box has-background-light">
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="addressForm">
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="street" class="label" [class.has-text-danger]="pageReady && vService.showErrors( addressForm.controls.street)">Street:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="street" type="text" class="input" formControlName="street" placeholder="Value is required">
+
+                  <div *ngIf="pageReady && vService.showErrors( addressForm.controls.street) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of vService.getControlErrors( addressForm.controls.street )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Value is required.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="city" class="col-md-2 control-label">City:</label>
-        <div class="col-md-6">
-          <input id="city" type="text" class="form-control" formControlName="city">
-          <div *ngIf="pageReady && vService.showErrors( addressForm.controls.city )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of vService.getControlErrors( addressForm.controls.city )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Value is required.
-        </div>
-      </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="city" class="label" [class.has-text-danger]="pageReady && vService.showErrors( addressForm.controls.city )">City:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="city" type="text" class="input" formControlName="city" placeholder="Value is required">
 
-      <div class="form-group">
-        <label for="state" class="col-md-2 control-label">State:</label>
-        <div class="col-md-6">
-          <input id="state" type="text" class="form-control" formControlName="state">
-          <div *ngIf="pageReady && vService.showErrors( addressForm.controls.state )" class="alert alert-danger">
-            <ul>
-              <!-- Demonstrates pulling the message directly from the returned error metadata -->
-              <li *ngIf="addressForm.controls.state.errors.required">
-                {{addressForm.controls.state.errors.required.message}}
-              </li>
-              <li *ngIf="addressForm.controls.state.errors.pattern">
-                {{addressForm.controls.state.errors.pattern.message}}
-              </li>
-            </ul>
+                  <div *ngIf="pageReady && vService.showErrors( addressForm.controls.city) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of vService.getControlErrors( addressForm.controls.city )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          2-letter state abbreviation required.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="zipCode" class="col-md-2 control-label">Zip Code:</label>
-        <div class="col-md-6">
-          <input id="zipCode" type="text" class="form-control" formControlName="zipCode">
-          <div *ngIf="pageReady && vService.showErrors( addressForm.controls.zipCode )" class="alert alert-danger">
-            <ul>
-              <!-- Demonstrates "hard-coding" validation messages based on the type of error message -->
-              <li *ngIf="addressForm.controls.zipCode.errors.required">
-                Address postal code is required.
-              </li>
-              <li *ngIf="addressForm.controls.zipCode.errors.pattern">
-                Address postal code does not fit the pattern.
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="state" class="label" [class.has-text-danger]="pageReady && vService.showErrors( addressForm.controls.state )">State:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="state" type="text" class="input" formControlName="state" placeholder="2-letter state abbreviation required">
+
+                  <div *ngIf="pageReady && vService.showErrors( addressForm.controls.state) " class="help is-danger">
+                    <ul>
+                      <li *ngIf="addressForm.controls.state.errors.required">
+                        {{addressForm.controls.state.errors.required.message}}
+                      </li>
+                      <li *ngIf="addressForm.controls.state.errors.pattern">
+                        {{addressForm.controls.state.errors.pattern.message}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          5-digit zip code required.
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="zipCode" class="label" [class.has-text-danger]="pageReady && vService.showErrors( addressForm.controls.zipCode )">Zip code:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="zipCode" type="text" class="input" formControlName="zipCode" placeholder="5-digit zip code required">
+
+                  <div *ngIf="pageReady && vService.showErrors( addressForm.controls.zipCode) " class="help is-danger">
+                    <ul>
+                      <li *ngIf="addressForm.controls.zipCode.errors.required">
+                        Address postal code is required.
+                      </li>
+                      <li *ngIf="addressForm.controls.zipCode.errors.pattern">
+                        Address postal code does not fit the pattern.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!addressForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!addressForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
+      <div class="column is-4 content is-size-7">
+
+        <p>In this demo, the component does not extend vadacl, so vadacl is utilized as a service injected into the
+        component.</p>
+        <p>Also, the form data is mapped to a simple JavaScript object literal, illustrating how you can apply
+          validation rules even when working with ad-hoc objects with no TypeScript definition or interface.</p>
+        <p>The validation message for the "Address" is defined via applyRules(), while the validation message for the "City"
+        comes from the default message for a required field as defined in the validation-messages.ts file.</p>
+        <p>It also shows different approaches to structuring the error messages.  Instead of treating all of error
+        messages the same using ngFor, the error messages for the "State" are shown individually via ngIf but still
+        output the validation message provided by vadacl.  The error messages for the "Zip code" are also rendered
+        individually but the messages are hard-coded.</p>
       </div>
-    </form>
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
-  </div>
+
 </div>

@@ -1,54 +1,95 @@
-<h3>Cruise Excursion Package</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="packageForm">
-      <div class="form-group">
-        <label for="package" class="col-md-2 control-label">Package:</label>
-        <div class="col-md-6">
-          <select id="package" class="form-control" formControlName="package" (change)="updatePackage()">
-            <option *ngFor="let p of packageArray" [selected]="p.id == selectedPackage" [value]="p.id">{{p.name}} - {{p.count}} excursions ({{p.price}})</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          Each excursion package allows you to take a certain number of excursions.  Choose a package and then
-          choose your specific excursions.
-        </div>
-      </div>
+  <br />
+  <h3 class="title is-size-3">Cruise Excursion Package</h3>
 
-      <div class="form-group">
-        <label class="col-md-2 control-label">Excursions:<br />(Select {{selectedPackage.count}})</label>
-        <div class="col-md-10">
-          <ul class="excursionList" formArrayName="excursions"> <!-- Must set the formArrayName -->
-            <li *ngFor="let ex of packageForm.controls.excursions.controls; let i = index">
-              <input type="checkbox" formControlName="{{i}}" > <strong>{{excursionArray[i].title}}:</strong> {{excursionArray[i].label}}
-            </li>
-          </ul>
-          <div *ngIf="pageReady && showErrors( packageForm.controls.excursions )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( packageForm.controls.excursions )">
-                {{error}}
-              </li>
-            </ul>
+  <div class="box has-background-light">
+
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="packageForm">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="package" class="label">Package:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select is-rounded">
+                    <select id="package" formControlName="package" (change)="updatePackage()">
+                      <option *ngFor="let p of packageArray" [selected]="p.id == selectedPackage" [value]="p.id">{{p.name}} - {{p.count}} excursions ({{p.price}})</option>
+                    </select>
+                  </div>
+                  <div class="help packageHelp">
+                    Each excursion package allows you to take a certain number of excursions.  Choose a package and then
+                    choose your specific excursions (note: you do have the option of selecting your specific excursions
+                    later).
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label class="label" [class.has-text-danger]="pageReady && showErrors( packageForm.controls.excursions)">Excursions:<br />(Select {{selectedPackage.count}})</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <ul class="excursionList" formArrayName="excursions"> <!-- Must set the formArrayName -->
+                    <li *ngFor="let ex of packageForm.controls.excursions.controls; let i = index">
+                      <input type="checkbox" formControlName="{{i}}" > <strong>{{excursionArray[i].title}}:</strong><br /> {{excursionArray[i].label}}
+                    </li>
+                  </ul>
+                  <div *ngIf="pageReady && showErrors( packageForm.controls.excursions) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( packageForm.controls.excursions )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!packageForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!packageForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
+      <div class="column is-4 content is-size-7">
+        <p>This demo uses vadacl's withinTrueCount() validation method, which is designed to validate that the number
+        of FormControls within a FormGroup or FormArray with a Boolean value of true falls within a given range.  In
+        this form, it's used to limit the user to selecting only as many excursions as are allowed based on the package
+        they select.</p>
+
+        <p>Since the number of allowed excursions changes as the package selection changes, the component invokes an
+        updatePackage() method every time the package is changed, and that method updates the withinTrueCount
+        validation rule and the validation message (which reminds the user how many excursions they can select) applied
+        to the "excursions" FormArray.  So this demo is also an example of changing aspects of the validation
+        dynamically.</p>
       </div>
 
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

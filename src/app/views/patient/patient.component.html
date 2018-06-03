@@ -1,224 +1,303 @@
-<h3>Patient Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="patientForm">
+  <br />
+  <h3 class="title is-size-3">Patient Form</h3>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Identity Data</h4>
-          <hr />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="firstName" class="col-md-2 control-label">First Name:</label>
-        <div class="col-md-6">
-          <input id="firstName" type="text" class="form-control" formControlName="firstName">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.firstName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.firstName )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Field is required. Cannot be a single letter.
-        </div>
-      </div>
+  <div class="box has-background-light">
 
-      <div class="form-group">
-        <label for="lastName" class="col-md-2 control-label">Last Name:</label>
-        <div class="col-md-6">
-          <input id="lastName" type="text" class="form-control" formControlName="lastName">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.lastName)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.lastName )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Field is required. Cannot be a single letter.
-        </div>
-      </div>
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="patientForm">
 
-      <div class="form-group">
-        <label for="username" class="col-md-2 control-label">Username:</label>
-        <div class="col-md-6">
-          <input id="username" type="text" class="form-control" formControlName="username">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.username)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.username )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Field is required. Must be between 8 and 12 characters long.
-        </div>
-      </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="firstName" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.firstName)">First Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="firstName" type="text" class="input" formControlName="firstName" placeholder="Field is required. Cannot be a single letter.">
 
-      <div class="form-group">
-        <label for="emailAddress" class="col-md-2 control-label">Email address:</label>
-        <div class="col-md-6">
-          <input id="emailAddress" type="text" class="form-control" formControlName="emailAddress">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.emailAddress)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.emailAddress )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Optional, but must be a valid email address if provided.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="age" class="col-md-2 control-label">Age:</label>
-        <div class="col-md-6">
-          <input id="age" type="text" class="form-control" formControlName="age">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.age)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.age )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Optional. Patients must be 18 years or older.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="previousVisits" class="col-md-2 control-label">Previous visits:</label>
-        <div class="col-md-6">
-          <input id="previousVisits" type="text" class="form-control" formControlName="previousVisits">
-          <div *ngIf="pageReady && showErrors(patientForm.controls.previousVisits)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.previousVisits )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Optional. Number of previous visits.  Any one patient can only be studied a total of 10 times.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-2">
-          <label>
-            <input id="agreement" type="checkbox" formControlName="agreement">
-            &nbsp; I agree to share my information with researchers.
-          </label>
-          <div *ngIf="pageReady && showErrors(patientForm.controls.agreement)" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.agreement )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Behavior Profile</h4>
-          <p>Denote the percentage of time you spend on each activity. The percentages must total 100%.</p>
-          <hr />
-        </div>
-      </div>
-
-      <!-- In order to access the FormControl objects nested within a FormGroup inside the top-level form/FormGroup,
-      those FormControl objects must be nested inside of a DOM element tied to the inner FormGroup via the
-      formGroupName attribute.  -->
-      <div formGroupName="percentages">
-        <div class="form-group">
-          <label for="working" class="col-md-2 control-label">Time working:</label>
-          <div class="col-md-6">
-            <input id="working" type="text" class="form-control" formControlName="working">
-            <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.working )" class="alert alert-danger">
-              <ul>
-                <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.working )">
-                  {{error}}
-                </li>
-              </ul>
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.firstName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.firstName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            Value should be between 0 and 100.
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="playing" class="col-md-2 control-label">Time playing:</label>
-          <div class="col-md-6">
-            <input id="playing" type="text" class="form-control" formControlName="playing">
-            <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.playing ) " class="alert alert-danger">
-              <ul>
-                <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.playing )">
-                  {{error}}
-                </li>
-              </ul>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="lastName" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.lastName)">Last Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="lastName" type="text" class="input" formControlName="lastName" placeholder="Field is required. Cannot be a single letter.">
+
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.lastName) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.lastName )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            Value should be between 0 and 100.
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="sleeping" class="col-md-2 control-label">Time sleeping:</label>
-          <div class="col-md-6">
-            <input id="sleeping" type="text" class="form-control" formControlName="sleeping">
-            <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.sleeping )" class="alert alert-danger">
-              <ul>
-                <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.sleeping )">
-                  {{error}}
-                </li>
-              </ul>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="username" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.username)">Username:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="username" type="text" class="input" formControlName="username" placeholder="Field is required. Must be between 8 and 12 characters long.">
+
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.username) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.username )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            Value should be between 0 and 100.
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="emailAddress" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.emailAddress)">Email Address:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="emailAddress" type="text" class="input" formControlName="emailAddress" placeholder="Optional, but must be a valid email address if provided.">
+
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.emailAddress) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.emailAddress )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="age" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.age)">Age:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="age" type="text" class="input" formControlName="age" placeholder="Optional. Patients must be 18 years or older.">
+
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.age) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.age )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="previousVisits" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.previousVisits)">Previous Visits:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="previousVisits" type="text" class="input" formControlName="previousVisits" placeholder="Optional. Any one patient can only be studied a total of 10 times.">
+
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.previousVisits) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.previousVisits )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              &nbsp;
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox help">
+                    <input id="agreement" type="checkbox" formControlName="agreement">
+                    &nbsp; I agree to share my information with researchers (<span [class.has-text-danger]="!patientForm.controls.agreement.value">required</span>).
+                  </label>
+                  <div *ngIf="pageReady && showErrors( patientForm.controls.agreement) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( patientForm.controls.agreement )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <div class="box">
+            <div class="content">
+              <h4 class="is-size-4">Behavior Profile</h4>
+              <p>Denote the percentage of time you spend on each activity. The percentages must total 100%.</p>
+            </div>
+
+            <!-- In order to access the FormControl objects nested within a FormGroup inside the top-level form/FormGroup,
+        those FormControl objects must be nested inside of a DOM element tied to the inner FormGroup via the
+        formGroupName attribute.  -->
+            <div formGroupName="percentages">
+
+              <div class="field is-horizontal">
+                <div class="field-label is-4">
+                  <label for="working" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.percentages.controls.working )">Time Working:</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input id="working" type="text" class="input" formControlName="working" placeholder="Value should be between 0 and 100.">
+
+                      <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.working) " class="help is-danger">
+                        <ul>
+                          <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.working )">
+                            {{error}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field is-horizontal">
+                <div class="field-label is-4">
+                  <label for="playing" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.percentages.controls.playing) ">Time Playing:</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input id="playing" type="text" class="input" formControlName="playing" placeholder="Value should be between 0 and 100.">
+
+                      <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.playing) " class="help is-danger">
+                        <ul>
+                          <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.playing )">
+                            {{error}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field is-horizontal">
+                <div class="field-label is-4">
+                  <label for="sleeping" class="label" [class.has-text-danger]="pageReady && showErrors( patientForm.controls.percentages.controls.sleeping ) ">Time Sleeping:</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input id="sleeping" type="text" class="input" formControlName="sleeping" placeholder="Value should be between 0 and 100.">
+
+                      <div *ngIf="pageReady && showErrors( patientForm.controls.percentages.controls.sleeping) " class="help is-danger">
+                        <ul>
+                          <li *ngFor="let error of getControlErrors( patientForm.controls.percentages.controls.sleeping )">
+                            {{error}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label is-4">
+                &nbsp;
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+
+                    <div *ngIf="pageReady && showErrors( patientForm.controls.percentages ) && percentagesSet()" class="help is-danger">
+                      <ul>
+                        <li *ngFor="let error of getControlErrors( patientForm.controls.percentages )">
+                          {{error}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!patientForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div *ngIf="pageReady && showErrors( patientForm.controls.percentages ) && percentagesSet()" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( patientForm.controls.percentages )">
-                {{error}}
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="column is-4 content is-size-7">
+        <p>Most of the validation rules and messages in this demo are defined in the Patient domain class, with some exceptions:</p>
+        <ul>
+          <li>"firstName": The rules are set on the Patient domain class but without any message values, so the messages
+          are the global defaults for the required and minLength validations in the validation-messages.ts file.</li>
+          <li>"lastName": Similar to the "firstName" property, the global default validation message is used for the
+          minLength validation.</li>
+          <li>"username": The withinLength rule and message are defined in the domain class, while the component adds
+          the required rule and message.</li>
+        </ul>
+        <p>The three form inputs for entering the percentage of time working, playing, or sleeping are each set with
+        the pattern validator and are added to the form as part of a FormGroup. The totals() vadacl validation method
+        is then applied to the FormGroup via vadacl's applyCollectionRule() method to ensure that the total percentage
+        equals 100.  A special method in the component is used to delay the display of the total validation error
+        message until all three inputs contain a value.</p>
+        <p>The demo also illustrates how the domain classes in this demo can be instantiated with initial values
+        simply by passing in an object literal.</p>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!patientForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>

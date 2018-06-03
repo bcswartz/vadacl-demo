@@ -1,91 +1,143 @@
-<h3>Company Form</h3>
+<div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-    <form class="form-horizontal well well-sm" [formGroup]="companyForm">
+  <br />
+  <h3 class="title is-size-3">Company Form</h3>
 
-      <div class="form-group">
-        <label for="name" class="col-md-2 control-label">Company Name:</label>
-        <div class="col-md-6">
-          <input id="name" type="text" class="form-control" formControlName="name">
-          <div *ngIf="pageReady && showErrors( companyForm.controls.name )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( companyForm.controls.name )">
-                {{error}}
-              </li>
-            </ul>
+  <div class="box has-background-light">
+
+    <div class="columns">
+      <div class="column is-7">
+        <form [formGroup]="companyForm" class="hz-label-150">
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="name" class="label" [class.has-text-danger]="pageReady && showErrors( companyForm.controls.name)">Company Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="name" type="text" class="input" formControlName="name" placeholder="Required. Cannot contain spaces or numbers.">
+
+                  <div *ngIf="pageReady && showErrors( companyForm.controls.name) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( companyForm.controls.name )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required. Cannot contain spaces or numbers.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="city" class="col-md-2 control-label">City:</label>
-        <div class="col-md-6">
-          <input id="city" type="text" class="form-control" formControlName="city">
-          <div *ngIf="pageReady && showErrors( companyForm.controls.city )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( companyForm.controls.city )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="city" class="label" [class.has-text-danger]="pageReady && showErrors( companyForm.controls.city)">City:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="city" type="text" class="input" formControlName="city" placeholder="Required. Must be at least 2 characters long.">
+
+                  <div *ngIf="pageReady && showErrors( companyForm.controls.city) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( companyForm.controls.city )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be at least 2 characters long.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="state" class="col-md-2 control-label">State:</label>
-        <div class="col-md-6">
-          <input id="state" type="text" class="form-control" formControlName="state">
-          <div *ngIf="pageReady && showErrors( companyForm.controls.state )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( companyForm.controls.state )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="state" class="label" [class.has-text-danger]="pageReady && showErrors( companyForm.controls.state)">State:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="state" type="text" class="input" formControlName="state" placeholder="Required. Must be 2-letter capitalized abbreviation">
+
+                  <div *ngIf="pageReady && showErrors( companyForm.controls.state) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( companyForm.controls.state )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be 2-letter capitalized abbreviation.
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label for="zip" class="col-md-2 control-label">Zip Code:</label>
-        <div class="col-md-6">
-          <input id="zip" type="text" class="form-control" formControlName="zip">
-          <div *ngIf="pageReady && showErrors( companyForm.controls.zip )" class="alert alert-danger">
-            <ul>
-              <li *ngFor="let error of getControlErrors( companyForm.controls.zip )">
-                {{error}}
-              </li>
-            </ul>
+          <div class="field is-horizontal">
+            <div class="field-label is-4">
+              <label for="zip" class="label" [class.has-text-danger]="pageReady && showErrors( companyForm.controls.zip)">Zip Code:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="zip" type="text" class="input" formControlName="zip" placeholder="Required. Must be a 9-digit code.">
+
+                  <div *ngIf="pageReady && showErrors( companyForm.controls.zip) " class="help is-danger">
+                    <ul>
+                      <li *ngFor="let error of getControlErrors( companyForm.controls.zip )">
+                        {{error}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          Field is required.  Must be a 9-digit zip code.
-        </div>
+
+
+          <div class="field is-horizontal">
+            <div class="field-label is-4"></div>
+            <div class="field-body is-3">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" [disabled]="!companyForm.valid" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button" (click)="resetForm()">Reset</button>
+                </div>
+                <div class="control">
+                  <div class="help is-success is-size-5" *ngIf="formSubmitted">Data submitted!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2">
-          <button type="button" class="btn btn-primary" [disabled]="!companyForm.valid" (click)="submitForm()">Submit</button>
-          <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
-        </div>
-        <div class="col-md-2 col-md-offset-1">
-          <span class="label label-success" *ngIf="formSubmitted">Data submitted!</span>
-        </div>
+      <div class="column is-4 content is-size-7">
+        <p>This demo is used to illustrate several things.  First, the zip code field is validated by a custom
+        validation method - fullZipCode() - added to vadacl via the vadacl.ts file in the src/app/validation folder.</p>
+
+        <p>The validation rules for the Company domain class are defined in the domain class (src/app/domain/company.ts),
+        but the validation messages are defined in the global messages file src/app/validation/validation-messages.ts.
+        In most projects, you would probably only define your messages in either this file or in each individual domain
+        class, but you can mix both approaches if need be (with the domain class messages overriding the global ones).</p>
+
+        <p>Another approach to overriding or altering the global messages for a given domain class is to make a new
+        "flavor" of the class via extension. The src/app/domain/enterprise-company.ts file extends (really clones in this
+        case) the company.ts file.  They are both essentially the same class, but the global messages defined for the
+        EnterpriseCompany object in validation-messages.ts are different.  Edit the component to use the EnterpriseCompany
+        class instead of the Company class and witness the change in the validation errors.</p>
+
+        <p>Finally, this demo is also the one used to demonstrate how you can create different language/locale versions
+        of the validation-messages.ts file and deploy different collections of validation messages for different
+        versions of your site (like providing French validation messages for the French version of your site).  Read the
+        end of the README.md file in this project for how to try that out.</p>
+
       </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
-    <a class="btn btn-primary" [routerLink]="['/home']">Return to Main Page</a>
+
+    </div>
+
+    <a [routerLink]="['/home']">Return to Main Page</a>
   </div>
 </div>
